@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 const fs  = require('fs');
 
 const app = express();
-let stringifyFile;
+let stringifyFile = "";
 
 app.use(bodyParser.json());
 
@@ -18,14 +18,13 @@ app.get('/getNote', function(req, res) {
 });
 
 app.post('/updateNote/:note', function(req, res) {
-  fs.writeFile('some.json', JSON.stringify(obj), function(err) {
-    if (err) throw err;
-    console.log('file updated');
-    res.end();
-  });
+    stringifyFile = req.param.note;
+    fs.writeFile('./some.json', JSON.stringify(stringifyFile), function(err) {
+      if (err) throw err;
+      console.log('file updated');
+      res.end();
+    });
 });
-
-
 
 app.listen(3000);
 

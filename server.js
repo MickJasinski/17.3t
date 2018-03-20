@@ -18,18 +18,6 @@ app.get("/getNote", function(req, res) {
   });
 });
 
-// app.post("/updateNote/:note", function(req, res) {
-//   fs.readFile("./some.json", "utf8", function(err, data) {
-//     if (err) throw err;
-//     stringifyFile = JSON.parse(data);
-
-//     fs.writeFile("./some.json", stringifyFile + req.params.note, function(err) {
-//       if (err) throw err;
-//       console.log("file updated");
-//       res.end();
-//     });
-//   });
-// });
 
 app.post("/updateNote/:note", function(req,res) {
   fs.readFile("./some.json", "utf8", function(err, data) {

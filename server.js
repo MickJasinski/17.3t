@@ -27,6 +27,7 @@ app.post("/updateNote/:note", function(req,res) {
     fs.writeFile("./some.json", stringifyFile, function(err) {
       if (err) throw err;
       console.log("file updated");
+      res.end();
     });
   });
 });
